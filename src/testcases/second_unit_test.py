@@ -7,7 +7,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 
-class WaitForElements(unittest.TestCase):
+class SecondUnitTest(unittest.TestCase):
     def setUp(self):
         global driver, waiter
         chrome_driver_path = os.path.curdir + "/chromedriver_linux64/chromedriver"
