@@ -1,5 +1,4 @@
-class DriverSession():
-
+class DriverSession:
     driver = None
 
     @staticmethod

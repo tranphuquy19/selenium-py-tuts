@@ -18,7 +18,6 @@ from utilities.util import Util
 
 
 class BasePage(SeleniumDriver):
-
     def __init__(self, driver):
         """
         Inits BasePage class
