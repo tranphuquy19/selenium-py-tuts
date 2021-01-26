@@ -1,0 +1,6 @@
+.pytest_cache
+.vscode
+.idea
+__init__.log
+report.html
+screenshots

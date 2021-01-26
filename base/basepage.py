@@ -102,7 +102,7 @@ class BasePage(SeleniumDriver):
             print_stack()
             return False
 
-    def verifyModalConfirmation(self, buttonLocator, info, locatorType="id"):
+    def verifyModalConfirmation(self, buttonLocator, info, locatorType="xpath"):
         """
         Verify the confirmation modal is present and click the 'Confirmation' button
         'Confirmation' button can be OK/Close/Delete
@@ -127,7 +127,7 @@ class BasePage(SeleniumDriver):
             print_stack()
             return False
 
-    def verifyFieldErrorMessage(self, locator, textToVerify, locatorType="id"):
+    def verifyFieldErrorMessage(self, locator, textToVerify, locatorType="xpath"):
         """
         Validate the flash message after completing an action
 
