@@ -1,7 +1,7 @@
 import unittest
 
-from testcases.first_unit_test import FirstUnitTest
-from testcases.second_unit_test import SecondUnitTest
+from tests.google.first_unit_test import FirstUnitTest
+from tests.google.second_unit_test import SecondUnitTest
 
 class TestSuite(unittest.TestSuite):
     def suite(self):

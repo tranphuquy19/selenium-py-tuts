@@ -1,4 +1,5 @@
 import os
+
 import unittest
 
 from selenium import webdriver
@@ -6,6 +7,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
+
+from pages.google.google_search_page import GoogleSearchPage
 
 
 class FirstUnitTest(unittest.TestCase):
@@ -23,26 +26,16 @@ class FirstUnitTest(unittest.TestCase):
         driver.get("https://google.com")
 
     def test_first_search(self):
-        btn_search_locator = "(//input[@value='Tìm trên Google'])[2]"
-        input_search_locator = "//input[@title='Tìm kiếm']"
-        btn_search = waiter.until(EC.presence_of_element_located((By.XPATH, btn_search_locator)))
-        input_search = waiter.until(EC.presence_of_element_located((By.XPATH, input_search_locator)))
-        input_search.send_keys("@tranphuquy19")
-        btn_search.click()
+        search_page = GoogleSearchPage(driver)
+        search_page.input_search("@tranphuquy19")
+        search_page.click_search()
         self.assertEqual(driver.title, "@tranphuquy19 - Tìm trên Google")
 
     def test_second_search(self):
-        btn_search_locator = "(//input[@value='Tìm trên Google'])[2]"
-        input_search_locator = "//input[@title='Tìm kiếm']"
-        btn_search = waiter.until(EC.presence_of_element_located((By.XPATH, btn_search_locator)))
-        input_search = waiter.until(EC.presence_of_element_located((By.XPATH, input_search_locator)))
-        input_search.send_keys("@tranphuquy19")
-        btn_search.click()
+        search_page = GoogleSearchPage(driver)
+        search_page.input_search("@tranphuquy19")
+        search_page.click_search()
         self.assertEqual(driver.title, "@tranphuquy19 - Tìm trên Google")
 
     def tearDown(self):
         driver.quit()
-
-
-if __name__ == "__main__":
-    unittest.main(verbosity=2)
