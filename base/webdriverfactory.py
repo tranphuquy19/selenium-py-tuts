@@ -20,8 +20,8 @@ from selenium import webdriver
 from utilities.driver_session import DriverSession as DS
 import utilities.custom_logger as cl
 
-class WebDriverFactory():
 
+class WebDriverFactory:
     def __init__(self):
         """
         Inits WebDriverFactory class
@@ -35,8 +35,8 @@ class WebDriverFactory():
         Returns:
             None
         """
-        self.cfg = ConfigReader(fileName="testenvironment.ini")
-        self.cfg.configRead()
+        self.cfg = ConfigReader(file_name="testenvironment.ini")
+        self.cfg.config_read()
         self.log = cl.customLogger()
 
     """
@@ -170,8 +170,8 @@ class WebDriverFactory():
         Returns:
             None
         """
-        grid_hub =  self.cfg.getConfiguration("Grid", "hub")
-        grid_port = self.cfg.getConfiguration("Grid", "hubport")
+        grid_hub =  self.cfg.get_configuration("Grid", "hub")
+        grid_port = self.cfg.get_configuration("Grid", "hubport")
         return "http://" + grid_hub + ":" + grid_port + "/wd/hub"
 
     def getAppURL(self):
@@ -186,7 +186,7 @@ class WebDriverFactory():
         Returns:
             None
         """
-        app_url =  self.cfg.getConfiguration("Array", "url")
+        app_url =  self.cfg.get_configuration("Array", "url")
         return app_url
 
     def getBrowser(self):
@@ -201,7 +201,7 @@ class WebDriverFactory():
         Returns:
             None
         """
-        browser =  self.cfg.getConfiguration("Platform", "browser")
+        browser =  self.cfg.get_configuration("Platform", "browser")
         return browser
 
     def getVersion(self):
@@ -216,7 +216,7 @@ class WebDriverFactory():
         Returns:
             None
         """
-        version =  self.cfg.getConfiguration("Platform", "version")
+        version =  self.cfg.get_configuration("Platform", "version")
         return version
 
     def getOS(self):
@@ -236,7 +236,7 @@ class WebDriverFactory():
         # self.log.info("*#" * 30)
         # platform = self.gspec.get_platform()
         # operatingSystem = platform["os"]
-        operatingSystem =  self.cfg.getConfiguration("Platform", "os")
+        operatingSystem =  self.cfg.get_configuration("Platform", "os")
         return operatingSystem
 
     def username(self):
@@ -251,7 +251,7 @@ class WebDriverFactory():
         Returns:
             None
         """
-        username =  self.cfg.getConfiguration("Array", "user")
+        username =  self.cfg.get_configuration("Array", "user")
         return username
 
     def password(self):
@@ -266,7 +266,7 @@ class WebDriverFactory():
         Returns:
             None
         """
-        password =  self.cfg.getConfiguration("Array", "password")
+        password =  self.cfg.get_configuration("Array", "password")
         return password
 
     def isArrayVirtual(self):
@@ -281,5 +281,5 @@ class WebDriverFactory():
         Returns:
             None
         """
-        isVirtual = self.cfg.getConfiguration("Array", "virtual")
+        isVirtual = self.cfg.get_configuration("Array", "virtual")
         return isVirtual

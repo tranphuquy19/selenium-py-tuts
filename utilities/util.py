@@ -406,9 +406,9 @@ class Util(object):
             Value associated with the option
 
         """
-        self.cfg = ConfigReader(fileName=fileName)
-        self.cfg.configRead()
-        return self.cfg.getConfiguration(section, option)
+        self.cfg = ConfigReader(file_name=fileName)
+        self.cfg.config_read()
+        return self.cfg.get_configuration(section, option)
 
     def getArrayName(self):
         """

@@ -32,7 +32,6 @@ import logging
 
 
 class SeleniumDriver(object):
-
     def __init__(self, driver):
         """
         Inits Selenium Driver class with driver

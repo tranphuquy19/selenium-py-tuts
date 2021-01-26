@@ -15,20 +15,21 @@ Example:
 from configparser import ConfigParser
 import os
 
+
 class ConfigReader(object):
-
-    def __init__(self, fileName="messages.ini"):
+    def __init__(self, file_name="messages.ini"):
         self.parser = ConfigParser()
-        scriptDirectory = os.path.dirname(__file__)
-        relativePath = "../configfiles/" + fileName
-        absFilePath = os.path.join(scriptDirectory, relativePath)
-        self.file = absFilePath
-       # self.file = ['/auto/home.nas03/atomar/hg/ntests/cases/gui/configfiles/testenvironment.ini']
+        script_directory = os.path.dirname(__file__)
+        relative_path = "../configfiles/" + file_name
+        abs_file_path = os.path.join(script_directory, relative_path)
+        self.file = abs_file_path
 
-    def configRead (self):
+    # self.file = ['/auto/home.nas03/atomar/hg/ntests/cases/gui/configfiles/testenvironment.ini']
+
+    def config_read(self):
         self.parser.read(self.file)
 
-    def configSectionMap(self, section):
+    def config_section_map(self, section):
         """
         Returns a dictionary of 'Option and Value' under a section
 
@@ -54,7 +55,7 @@ class ConfigReader(object):
                 config[option] = None
         return config
 
-    def getConfiguration(self, section, option):
+    def get_configuration(self, section, option):
         """
         Get value of the provided option and section
 
@@ -68,11 +69,10 @@ class ConfigReader(object):
         Returns:
             Value of the provided option
         """
-        config_map = self.configSectionMap(section)
+        config_map = self.config_section_map(section)
         option_value = config_map[option]
         return option_value
 
-
-    def testMethod(self):
-        value = ConfigReader.getConfiguration(self,'Grid', 'remote')
+    def test_method(self):
+        value = ConfigReader.get_configuration(self, 'Grid', 'remote')
         print(value)
