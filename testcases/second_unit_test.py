@@ -26,12 +26,12 @@ class SecondUnitTest(unittest.TestCase):
         input_search_locator = "//input[@title='Tìm kiếm']"
         btn_search = waiter.until(EC.presence_of_element_located((By.XPATH, btn_search_locator)))
         input_search = waiter.until(EC.presence_of_element_located((By.XPATH, input_search_locator)))
-        input_search.send_keys("@tranphuquy19")
+        input_search.send_keys("https://doracoder.tk")
         btn_search.click()
-        self.assertEqual(driver.title, "@tranphuquy19 - Tìm trên Google")
+        self.assertEqual(driver.title, "https://doracoder.tk - Tìm trên Google")
 
     def tearDown(self):
         driver.quit()
 
 if __name__ == "__main__":
-    unittest.main()
+    unittest.main(verbosity=2)

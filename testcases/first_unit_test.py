@@ -22,7 +22,16 @@ class FirstUnitTest(unittest.TestCase):
 
         driver.get("https://google.com")
 
-    def test_wait_for_search_btn(self):
+    def test_first_search(self):
+        btn_search_locator = "(//input[@value='Tìm trên Google'])[2]"
+        input_search_locator = "//input[@title='Tìm kiếm']"
+        btn_search = waiter.until(EC.presence_of_element_located((By.XPATH, btn_search_locator)))
+        input_search = waiter.until(EC.presence_of_element_located((By.XPATH, input_search_locator)))
+        input_search.send_keys("@tranphuquy19")
+        btn_search.click()
+        self.assertEqual(driver.title, "@tranphuquy19 - Tìm trên Google")
+
+    def test_second_search(self):
         btn_search_locator = "(//input[@value='Tìm trên Google'])[2]"
         input_search_locator = "//input[@title='Tìm kiếm']"
         btn_search = waiter.until(EC.presence_of_element_located((By.XPATH, btn_search_locator)))
@@ -36,4 +45,4 @@ class FirstUnitTest(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    unittest.main()
+    unittest.main(verbosity=2)
