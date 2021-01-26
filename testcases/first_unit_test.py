@@ -7,6 +7,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 
+
 class FirstUnitTest(unittest.TestCase):
     def setUp(self):
         global driver, waiter
@@ -32,6 +33,7 @@ class FirstUnitTest(unittest.TestCase):
 
     def tearDown(self):
         driver.quit()
+
 
 if __name__ == "__main__":
     unittest.main()
