@@ -1,0 +1,16 @@
+01/26/2021 03:59:17 PM - __init__ - INFO: Waiting for maximum :: 10 :: seconds for element '' to be visible and clickable
+01/26/2021 03:59:17 PM - __init__ - INFO: Element '' appeared on the web page after :: 0.03 :: seconds
+01/26/2021 03:59:17 PM - __init__ - INFO: Send keys --> :: '@tranphuquy19' on element :: Send text into search input
+01/26/2021 03:59:17 PM - __init__ - INFO: Waiting after sending data to the element for 0 seconds
+01/26/2021 03:59:17 PM - __init__ - INFO: Waiting for maximum :: 10 :: seconds for element '' to be visible and clickable
+01/26/2021 03:59:17 PM - __init__ - INFO: Element '' appeared on the web page after :: 0.02 :: seconds
+01/26/2021 03:59:18 PM - __init__ - INFO: clicked on element :: Click button search
+01/26/2021 03:59:18 PM - __init__ - INFO: Waiting after clicking the element for 0 seconds
+01/26/2021 03:59:17 PM - __init__ - INFO: Waiting for maximum :: 10 :: seconds for element '' to be visible and clickable
+01/26/2021 03:59:17 PM - __init__ - INFO: Element '' appeared on the web page after :: 0.03 :: seconds
+01/26/2021 03:59:17 PM - __init__ - INFO: Send keys --> :: '@tranphuquy19' on element :: Send text into search input
+01/26/2021 03:59:17 PM - __init__ - INFO: Waiting after sending data to the element for 0 seconds
+01/26/2021 03:59:17 PM - __init__ - INFO: Waiting for maximum :: 10 :: seconds for element '' to be visible and clickable
+01/26/2021 03:59:17 PM - __init__ - INFO: Element '' appeared on the web page after :: 0.02 :: seconds
+01/26/2021 03:59:18 PM - __init__ - INFO: clicked on element :: Click button search
+01/26/2021 03:59:18 PM - __init__ - INFO: Waiting after clicking the element for 0 seconds

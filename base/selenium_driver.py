@@ -15,8 +15,8 @@ Example:
 """
 import time
 import traceback
-from base.configreader import ConfigReader
-from selenium import webdriver
+# from base.configreader import ConfigReader
+# from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -183,7 +183,7 @@ class SeleniumDriver(object):
             self.log.error("Element :: " + info +  " reference to none")
             return False
 
-    def clickWhenReady(self, locator, locatorType="id", info="", timeout=10, pollFrequency=0.5, timeToWait=0):
+    def clickWhenReady(self, locator, locatorType="xpath", info="", timeout=10, pollFrequency=0.5, timeToWait=0):
         """
         Click Element when it's clickable
 
@@ -355,7 +355,7 @@ class SeleniumDriver(object):
         if element is not None:
             try:
                 value = element.get_attribute("value")
-                if len(value) is not 0:
+                if len(value) != 0:
                     self.log.info("Getting value of element :: " +  info)
                     self.log.info("The value is :: '" + value + "'")
             except:
@@ -366,7 +366,7 @@ class SeleniumDriver(object):
             return None
         return value
 
-    def isElementPresent(self, locator, locatorType="id"):
+    def isElementPresent(self, locator, locatorType="xpath"):
         """
         Check if element is present
 
@@ -427,7 +427,7 @@ class SeleniumDriver(object):
                 traceback.print_stack()
         return enabled
 
-    def isDisplayed(self, element=None, info="", locator="", locatorType="id"):
+    def isDisplayed(self, element=None, info="", locator="", locatorType="xpath"):
         """
         Check if element is displayed
 
@@ -744,7 +744,7 @@ class SeleniumDriver(object):
         else:
             self.log.info("Element :: " + info +  " reference to none")
 
-    def getElement(self, locator, locatorType="id"):
+    def getElement(self, locator, locatorType="xpath"):
         """
         Get element for a provided locator
 
@@ -782,7 +782,7 @@ class SeleniumDriver(object):
             traceback.print_stack()
         return element
 
-    def getElementList(self, locator, locatorType="id"):
+    def getElementList(self, locator, locatorType="xpath"):
         """
         Get elementList list for a provided locator
 
@@ -873,7 +873,7 @@ class SeleniumDriver(object):
             self.log.warning("Locator type " + locatorType + " not correct/supported")
             return False
 
-    def waitForElement(self, locator, locatorType="id", info="", waitType="visible", timeout=10, pollFrequency=0.5):
+    def waitForElement(self, locator, locatorType="xpath", info="", waitType="visible", timeout=10, pollFrequency=0.5):
         """
         Wait for element to present
 
@@ -912,7 +912,7 @@ class SeleniumDriver(object):
                            "' not appeared on the web page after :: " + str(timeout) + " :: seconds")
         return element
 
-    def waitForLoading(self, locator, locatorType="id", timeout=20):
+    def waitForLoading(self, locator, locatorType="xpath", timeout=20):
         """
         Wait for loading to complete
 
