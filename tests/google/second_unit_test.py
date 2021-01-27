@@ -4,7 +4,7 @@ import pytest
 from pages.google.google_search_page import GoogleSearchPage
 
 
-@pytest.mark.usefixtures("browser")
+@pytest.mark.usefixtures('browser')
 class SecondUnitTest(unittest.TestCase):
     @pytest.fixture(autouse=True)
     def setup(self, browser):
