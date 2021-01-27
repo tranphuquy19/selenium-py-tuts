@@ -2,6 +2,7 @@
 .vscode
 .idea
 __init__.log
+assets/
 report.html
 screenshots
 __pycache__/

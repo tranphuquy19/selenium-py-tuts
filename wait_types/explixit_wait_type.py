@@ -4,6 +4,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import *
 
+
 class ExplicitWaitType():
 
     def __init__(self, driver):
@@ -16,13 +17,13 @@ class ExplicitWaitType():
         try:
             byType = self.hw.getByType(locatorType)
             print("Waiting for maximum :: " + str(timeout) +
-                          " :: seconds for element to be clickable")
+                  " :: seconds for element to be clickable")
             wait = WebDriverWait(self.driver, 10, poll_frequency=1,
                                  ignored_exceptions=[NoSuchElementException,
                                                      ElementNotVisibleException,
                                                      ElementNotSelectableException])
             element = wait.until(EC.element_to_be_clickable((byType,
-                                                         "//select[@name='sort']")))
+                                                             "//select[@name='sort']")))
             print("Element appeared on the web page")
         except:
             print("Element not appeared on the web page")

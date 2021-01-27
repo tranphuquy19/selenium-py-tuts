@@ -21,8 +21,8 @@ class GoogleSearchPage(SeleniumDriver):
 
     def input_search(self, text):
         input_search = self.waitForElement(self._input_search)
-        self.sendKeys(input_search, text, "Send text into search input")
+        self.sendKeys(input_search, text, "search_input")
 
     def click_search(self):
         btn_search = self.waitForElement(self._btn_search)
-        self.clickElement(btn_search, "Click button search")
+        self.clickElement(btn_search, "search_button")

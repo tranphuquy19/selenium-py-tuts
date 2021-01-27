@@ -1,37 +1,19 @@
-import os
 import unittest
+import pytest
 
-from selenium import webdriver
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
+from pages.google.google_search_page import GoogleSearchPage
 
+
+@pytest.mark.usefixtures("browser")
 class SecondUnitTest(unittest.TestCase):
-    def setUp(self):
-        global driver, waiter
-        chrome_driver_path = os.path.curdir + "/chromedriver_linux64/chromedriver"
-        chrome_options = Options()
-        chrome_options.add_argument("--disable-notifications")
-        chrome_options.add_argument("--window-size=1600,900")
+    @pytest.fixture(autouse=True)
+    def setup(self, browser):
+        self.driver = browser
+        self.driver.get('https://google.com')
 
-        driver = webdriver.Chrome(
-            executable_path=chrome_driver_path, options=chrome_options)
-        waiter = WebDriverWait(driver, 10)
-
-        driver.get("https://google.com")
-
+    @pytest.mark.order(0)
     def test_wait_for_search_btn(self):
-        btn_search_locator = "(//input[@value='Tìm trên Google'])[2]"
-        input_search_locator = "//input[@title='Tìm kiếm']"
-        btn_search = waiter.until(EC.presence_of_element_located((By.XPATH, btn_search_locator)))
-        input_search = waiter.until(EC.presence_of_element_located((By.XPATH, input_search_locator)))
-        input_search.send_keys("https://doracoder.tk")
-        btn_search.click()
-        self.assertEqual(driver.title, "https://doracoder.tk - Tìm trên Google")
-
-    def tearDown(self):
-        driver.quit()
-
-if __name__ == "__main__":
-    unittest.main(verbosity=2)
+        search_page = GoogleSearchPage(self.driver)
+        search_page.input_search('https://doracoder.tk')
+        search_page.click_search()
+        self.assertEqual(self.driver.title, f'https://doracoder.tk - Tìm trên Google')
